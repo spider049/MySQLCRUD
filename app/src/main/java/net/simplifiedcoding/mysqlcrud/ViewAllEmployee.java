@@ -3,16 +3,13 @@ package net.simplifiedcoding.mysqlcrud;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -74,7 +71,7 @@ public class ViewAllEmployee extends AppCompatActivity implements ListView.OnIte
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(ViewAllEmployee.this,"Fetching Data","Wait...",false,false);
+                loading = ProgressDialog.show(ViewAllEmployee.this,"กำลังดึงข้อมูล","สักครู่...",false,false);
             }
 
             @Override
