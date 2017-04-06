@@ -6,11 +6,11 @@ package net.simplifiedcoding.mysqlcrud;
 public class Config {
 
     //Address of our scripts of the CRUD
-    public static final String URL_ADD="http://15.0.0.55/Android/CRUD/addEmp.php";
-    public static final String URL_GET_ALL = "http://15.0.0.55/Android/CRUD/getAllEmp.php";
-    public static final String URL_GET_EMP = "http://15.0.0.55/Android/CRUD/getEmp.php?id=";
-    public static final String URL_UPDATE_EMP = "http://15.0.0.55/Android/CRUD/updateEmp.php";
-    public static final String URL_DELETE_EMP = "http://15.0.0.55/Android/CRUD/deleteEmp.php?id=";
+    public static final String URL_ADD="http://spider049.16mb.com/android/CRUD/addEmp.php";
+    public static final String URL_GET_ALL = "http://spider049.16mb.com/android/CRUD/getAllEmp.php";
+    public static final String URL_GET_EMP = "http://spider049.16mb.com/android/CRUD/getEmp.php?id=";
+    public static final String URL_UPDATE_EMP = "http://spider049.16mb.com/android/CRUD/updateEmp.php";
+    public static final String URL_DELETE_EMP = "http://spider049.16mb.com/android/CRUD/deleteEmp.php?id=";
 
     //Keys that will be used to send the request to php scripts
     public static final String KEY_EMP_ID = "id";
