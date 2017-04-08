@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(MainActivity.this,"Adding...","Wait...",false,false);
+                loading = ProgressDialog.show(MainActivity.this,"กำลังเพิ่ม...","รอเดี๋ยวนิ..!!",false,false);
             }
 
             @Override
