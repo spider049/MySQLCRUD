@@ -3,14 +3,15 @@ package net.simplifiedcoding.mysqlcrud;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.HashMap;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button buttonAdd;
     private Button buttonView;
+    private  Button buttonTest;                                 // test Button TEST
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +36,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         buttonAdd = (Button) findViewById(R.id.buttonAdd);
         buttonView = (Button) findViewById(R.id.buttonView);
+        buttonTest =(Button) findViewById(R.id.buttonTest);     // test Button TEST
 
         //Setting listeners to button
         buttonAdd.setOnClickListener(this);
         buttonView.setOnClickListener(this);
+        buttonTest.setOnClickListener(this);                    // test Button TEST
     }
 
 
@@ -48,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final String desg = editTextDesg.getText().toString().trim();
         final String sal = editTextSal.getText().toString().trim();
 
+
         class AddEmployee extends AsyncTask<Void,Void,String>{
 
             ProgressDialog loading;
@@ -55,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(MainActivity.this,"กำลังเพิ่ม...","รอเดี๋ยวนิ..!!",false,false);
+                loading = ProgressDialog.show(MainActivity.this,"กำลังเพิ่ม...","ใจเย็นๆ.นิ!!",false,false);
             }
 
             @Override
@@ -82,6 +87,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ae.execute();
     }
 
+    private void bttTest(){     // เริ่ม
+        // buttonTest
+        final String name = editTextName.getText().toString().trim();
+        final String desg = editTextDesg.getText().toString().trim();
+        final String sal = editTextSal.getText().toString().trim();
+
+        class  bttTest extends AsyncTask<Void,Void,String>{
+            ProgressDialog loading2;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading2 = ProgressDialog.show(MainActivity.this,"กำลังกดปุ่ม TEST","มาแล้วดีใจด้วยปุ่ม Test",false,false);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading2.dismiss();
+                Toast.makeText(MainActivity.this,s,Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected String doInBackground(Void... v) {
+                HashMap<String,String> params = new HashMap<>();
+                params.put(Config.KEY_EMP_NAME,name);
+                params.put(Config.KEY_EMP_DESG,desg);
+                params.put(Config.KEY_EMP_SAL,sal);
+
+                RequestHandler rh = new RequestHandler();
+                String res = rh.sendPostRequest(Config.URL_ADD, params);
+                return res;
+            }
+        }
+    }   // Method test จบ
+
     @Override
     public void onClick(View v) {
         if(v == buttonAdd){
@@ -90,6 +131,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(v == buttonView){
             startActivity(new Intent(this,ViewAllEmployee.class));
+        }
+
+        // buttonTest
+        if(v == buttonTest){
+            addEmployee();
         }
     }
 }

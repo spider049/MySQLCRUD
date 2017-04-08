@@ -48,4 +48,10 @@
         android:text="View Employee"
         android:id="@+id/buttonView" />
 
+    <Button
+        android:id="@+id/buttonTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Test AsyncTask" />
+
 </LinearLayout>
