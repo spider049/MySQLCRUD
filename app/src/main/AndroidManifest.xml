@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.simplifiedcoding.mysqlcrud" >
+    package="net.simplifiedcoding.mysqlcrud">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/pc-computer-with-monitor"
+        android:icon="@mipmap/spk1_13"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +21,7 @@
         <activity
             android:name=".ViewAllEmployee"
             android:label="@string/title_activity_view_all_employee"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="net.simplifiedcoding.mysqlcrud.MainActivity" />
@@ -29,8 +29,8 @@
         <activity
             android:name=".ViewEmployee"
             android:label="@string/title_activity_view_employee"
-            android:parentActivityName=".ViewAllEmployee" >
-        </activity>
+            android:parentActivityName=".ViewAllEmployee"></activity>
+        <activity android:name=".dtn.ViewAlljob"></activity>
     </application>
 
 </manifest>

@@ -54,4 +54,10 @@
         android:layout_height="wrap_content"
         android:text="เพิ่ม 10000 ข้อมูล" />
 
+    <Button
+        android:id="@+id/buttonViewALLjob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ข้อมูลงาน" />
+
 </LinearLayout>
