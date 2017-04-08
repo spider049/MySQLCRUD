@@ -1,5 +1,4 @@
 package net.simplifiedcoding.mysqlcrud;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -9,9 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import java.util.HashMap;
-
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -53,25 +50,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final String sal = editTextSal.getText().toString().trim();
 
 
-        class AddEmployee extends AsyncTask<Void,Void,String>{
+        // class AddEmployee extends AsyncTask<Void,Void,String>{
+        class AddEmployee extends AsyncTask<Void,Integer,String>{
 
             ProgressDialog loading;
 
             @Override
-            protected void onPreExecute() {
+            protected void onPreExecute() {                         // 1 ระหว่างเตรียมข้อมูล
                 super.onPreExecute();
-                loading = ProgressDialog.show(MainActivity.this,"กำลังเพิ่ม...","ใจเย็นๆ.นิ!!",false,false);
+                // loading = ProgressDialog.show(MainActivity.this,"กำลังเพิ่ม...","ใจเย็นๆ.นิ!!",false,false);
+                loading = new ProgressDialog(MainActivity.this);
+                loading.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                // loading.setTitle("Loading...");
+                loading.setMessage("Loading Data...");
+                loading.setCancelable(false);
+                loading.setIndeterminate(false);
+                loading.setMax(100);
+                loading.setProgress(0);
+                loading.show();
             }
 
             @Override
-            protected void onPostExecute(String s) {
-                super.onPostExecute(s);
-                loading.dismiss();
-                Toast.makeText(MainActivity.this,s,Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            protected String doInBackground(Void... v) {
+            protected String doInBackground(Void... v) {            // 2 กำลังส่งข้อมูล
                 HashMap<String,String> params = new HashMap<>();
                 params.put(Config.KEY_EMP_NAME,name);
                 params.put(Config.KEY_EMP_DESG,desg);
@@ -81,10 +81,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String res = rh.sendPostRequest(Config.URL_ADD, params);
                 return res;
             }
+
+            @Override
+            protected void onPostExecute(String s) {                // 4 เมื่อส่งข้อมูลเรียบร้อย "s" ได้มาจาก echo php ส่งกลับ
+                super.onPostExecute(s);
+                loading.dismiss();                                  // เมื่อ doInBackground โหลดข้อมูลเสร็จให้ปิด ProgressDialog
+                Toast.makeText(MainActivity.this,s,Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onProgressUpdate(Integer... values) {
+                super.onProgressUpdate();
+                loading.setProgress(values[0]);
+            }
+
+
         }
 
         AddEmployee ae = new AddEmployee();
-        ae.execute();
+        ae.execute();                                               // 3 บันทึกลงฐานข้อมูล
+        // Toast.makeText(MainActivity.this,"เรียบร้อย บริบูรณ์..",Toast.LENGTH_LONG).show();
     }
 
     private void bttTest(){     // เริ่ม
@@ -117,10 +133,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 params.put(Config.KEY_EMP_SAL,sal);
 
                 RequestHandler rh = new RequestHandler();
-                String res = rh.sendPostRequest(Config.URL_ADD, params);
+                String res = rh.sendPostRequest(Config.URL_ADD100, params);
                 return res;
             }
         }
+        bttTest aa = new bttTest();
+        aa.execute();
     }   // Method test จบ
 
     @Override
@@ -135,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // buttonTest
         if(v == buttonTest){
-            addEmployee();
+            bttTest();
         }
     }
 }

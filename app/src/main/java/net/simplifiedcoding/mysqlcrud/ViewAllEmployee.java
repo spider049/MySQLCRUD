@@ -67,13 +67,28 @@ public class ViewAllEmployee extends AppCompatActivity implements ListView.OnIte
     }
 
     private void getJSON(){
-        class GetJSON extends AsyncTask<Void,Void,String>{
+        // class GetJSON extends AsyncTask<Void,Void,String>{
+        class GetJSON extends AsyncTask<Void,Integer,String>{
+            @Override
+            protected void onProgressUpdate(Integer... values) {
+                super.onProgressUpdate(values);
+                loading.setProgress(values[0]);
+            }
 
             ProgressDialog loading;
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(ViewAllEmployee.this,"กำลังดึงข้อมูล","สักครู่...",false,false);
+                // loading = ProgressDialog.show(ViewAllEmployee.this,"กำลังดึงข้อมูล","สักครู่...",false,false);
+                loading = new ProgressDialog(ViewAllEmployee.this);
+                loading.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                //loading.setTitle("Loading...");
+                loading.setMessage("Loading Data...");
+                loading.setCancelable(false);
+                loading.setIndeterminate(false);
+                loading.setMax(100);
+                loading.setProgress(0);
+                loading.show();
             }
 
             @Override

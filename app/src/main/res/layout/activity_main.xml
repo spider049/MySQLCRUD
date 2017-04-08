@@ -52,6 +52,6 @@
         android:id="@+id/buttonTest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Test AsyncTask" />
+        android:text="เพิ่ม 10000 ข้อมูล" />
 
 </LinearLayout>
