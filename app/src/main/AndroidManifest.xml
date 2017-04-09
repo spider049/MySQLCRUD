@@ -30,7 +30,6 @@
             android:name=".ViewEmployee"
             android:label="@string/title_activity_view_employee"
             android:parentActivityName=".ViewAllEmployee"></activity>
-        <activity android:name=".dtn.ViewAlljob"></activity>
     </application>
 
 </manifest>
