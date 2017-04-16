@@ -108,17 +108,12 @@ public class ViewEmployee extends AppCompatActivity implements View.OnClickListe
 
         class UpdateEmployee extends AsyncTask<Void,Void,String>{
             ProgressDialog loading;
+
+
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
                 loading = ProgressDialog.show(ViewEmployee.this,"Updating...","Wait...",false,false);
-            }
-
-            @Override
-            protected void onPostExecute(String s) {
-                super.onPostExecute(s);
-                loading.dismiss();
-                Toast.makeText(ViewEmployee.this,s,Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -134,6 +129,13 @@ public class ViewEmployee extends AppCompatActivity implements View.OnClickListe
                 String s = rh.sendPostRequest(Config.URL_UPDATE_EMP,hashMap);
 
                 return s;
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading.dismiss();
+                Toast.makeText(ViewEmployee.this,s,Toast.LENGTH_LONG).show();
             }
         }
 
