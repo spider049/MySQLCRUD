@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button buttonView;
 
     private  Button buttonTest;                                 // test Button TEST
-    private  Button buttonViewALLJOB;
+    private  Button buttonDtnjobinput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +38,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonAdd = (Button) findViewById(R.id.buttonAdd);
         buttonView = (Button) findViewById(R.id.buttonView);
         buttonTest =(Button) findViewById(R.id.buttonTest);     // test Button TEST
-        buttonViewALLJOB =(Button) findViewById(R.id.buttonViewALLjob);
+        buttonDtnjobinput =(Button) findViewById(R.id.buttDtnjobinput);
 
         //Setting listeners to button
         buttonAdd.setOnClickListener(this);
         buttonView.setOnClickListener(this);
         buttonTest.setOnClickListener(this);                    // test Button TEST
-        buttonViewALLJOB.setOnClickListener(this);
+        buttonDtnjobinput.setOnClickListener(this);
     }
 
 
@@ -163,7 +163,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         //buttonViewALLJOB
-        if(v == buttonViewALLJOB){
+        if(v == buttonDtnjobinput){
+            startActivity(new Intent(this,DtnJobInput.class));
           //startActivity(new Intent(this,Vie));
         }
     }

@@ -60,4 +60,9 @@
         android:text="Delete Employee"
         android:id="@+id/buttonDelete" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        android:id="@+id/buttonHome" />
 </LinearLayout>

@@ -27,6 +27,7 @@ public class ViewEmployee extends AppCompatActivity implements View.OnClickListe
 
     private Button buttonUpdate;
     private Button buttonDelete;
+    private Button buttonHome;
 
     private String id;
 
@@ -46,9 +47,11 @@ public class ViewEmployee extends AppCompatActivity implements View.OnClickListe
 
         buttonUpdate = (Button) findViewById(R.id.buttonUpdate);
         buttonDelete = (Button) findViewById(R.id.buttonDelete);
+        buttonHome = (Button) findViewById(R.id.buttonHome);
 
         buttonUpdate.setOnClickListener(this);
         buttonDelete.setOnClickListener(this);
+        buttonHome.setOnClickListener(this);
 
         editTextId.setText(id);
 
@@ -205,6 +208,9 @@ public class ViewEmployee extends AppCompatActivity implements View.OnClickListe
 
         if(v == buttonDelete){
             confirmDeleteEmployee();
+        }
+        if(v == buttonHome){
+            startActivity(new Intent(this,MainActivity.class));
         }
     }
 }

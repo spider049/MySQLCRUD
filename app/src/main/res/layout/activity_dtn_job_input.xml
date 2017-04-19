@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="net.simplifiedcoding.mysqlcrud.DtnJobInput">
+    <RelativeLayout
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <TextView
+            android:id="@+id/txtCusID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="หมายเลขสมาชิก HSI,TVS"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/txtCusname"
+            android:layout_alignStart="@+id/txtCusname" />
+
+        <EditText
+            android:id="@+id/edtHsiTvsID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="96 , 91, etc"
+            android:inputType="textPersonName"
+            android:layout_below="@+id/txtCusID"
+            android:layout_alignLeft="@+id/txtCusID"
+            android:layout_alignStart="@+id/txtCusID" />
+
+        <TextView
+            android:id="@+id/txtCusname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ชื่อลูกค้า"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="14dp"
+            android:layout_below="@+id/edtHsiTvsID"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:id="@+id/edtCusname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/edtHsiTvsID"
+            android:layout_alignRight="@+id/edtHsiTvsID"
+            android:layout_below="@+id/txtCusname"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="ชื่อ-นามสกุล ลูกค้า"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/txtDwbegin_to_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="ระยะสาย เริ่ม-สิ้นสุด"
+            android:layout_below="@+id/edtCusname"
+            android:layout_alignLeft="@+id/edtCusname"
+            android:layout_alignStart="@+id/edtCusname" />
+
+        <EditText
+            android:id="@+id/edtDwBegin_to_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txtDwbegin_to_end"
+            android:layout_alignStart="@+id/txtDwbegin_to_end"
+            android:layout_below="@+id/txtDwbegin_to_end"
+            android:layout_marginTop="13dp"
+            android:ems="10"
+            android:hint="ระยะสาย เริ่ม-สิ้นสุด"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/edtComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edtDwBegin_to_end"
+            android:layout_alignStart="@+id/edtDwBegin_to_end"
+            android:layout_below="@+id/edtDwBegin_to_end"
+            android:layout_marginTop="18dp"
+            android:ems="10"
+            android:hint="Remarks"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="Save"
+            android:layout_above="@+id/btnHomeback"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:id="@+id/btnHomeback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="หน้าหลัก"
+            android:layout_marginBottom="24dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
